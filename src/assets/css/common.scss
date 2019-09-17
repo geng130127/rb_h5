@@ -1,0 +1,46 @@
+@import "~@assets/css/base.css";
+
+.clearfix {
+  display: inline-block;
+}
+
+.clearfix::after {
+  display: block;
+  content: ".";
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.before::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+
+// color font
+$--font-title-color: #C6BDA9;
+$--font-text-color: #88847C;
+$--font-text-size: 18px;
+$--font-title-size: 30px;
+
+//@mixin
+@mixin content-box {
+  position: relative;
+  padding: 0 40px;
+}
+
+@mixin image {
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
