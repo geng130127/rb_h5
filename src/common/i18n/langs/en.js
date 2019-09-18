@@ -16,6 +16,11 @@ const en = {
     home: { //Home页面
       home:'HOME'
     },
+    articleDetail:{
+      article:'Article',
+      tags:'Tags',
+      copyCpde:'Copy code to clipboard'
+    }
   },
   //...enLocale
 }

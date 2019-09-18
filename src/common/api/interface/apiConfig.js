@@ -26,6 +26,15 @@ const apiList = {
       method: 'GET',
       params
     })
+  },
+
+  //文章点赞或者取消点赞
+  articleLike:(params)=>{
+    return axios({
+      url: '/article/v1/like',
+      method: 'GET',
+      params
+    })
   }
 };
 

@@ -12,22 +12,23 @@
 
       <div class="left">
         <div class="swiper-container">
-          <ul class="swiper-wrapper">
-            <li class="swiper-slide" v-for="(item,index) in swiperList" :key="index">
+          <div class="swiper-wrapper">
+            <router-link :to="`article${item.id}`" class="swiper-slide" v-for="(item,index) in swiperList"
+                         :key="index">
               <img class="image" :src="item.picture" alt="">
               <div class="description">
                 <h3>{{item.title}}</h3>
                 <p>{{item.simpleContent}}</p>
               </div>
-            </li>
-          </ul>
+            </router-link>
+          </div>
           <div class="swiper-pagination"></div>
         </div>
 
         <div class="top-article">
-          <div class="article-title">
+          <router-link tag="div" :to="`article${topArticle.id}`" class="article-title">
             {{topArticle.title}}
-          </div>
+          </router-link>
         </div>
       </div>
 
@@ -48,6 +49,7 @@
 <script type="text/ecmascript-6">
   import 'swiper/dist/css/swiper.min.css'
   import swiper from 'swiper'
+  import util from '@common/util'
 
   export default {
     name: "home",
@@ -80,7 +82,9 @@
         ],
       }
     },
-    props: {},
+    props: {
+      id: String//用戶ID
+    },
     methods: {
       getSwiperData() {
         let params = {};
@@ -96,7 +100,10 @@
           })
           .catch((error) => {
 
-          })
+          });
+
+        //設置COOKIE
+        this.id ? util.setCookie('user_id', this.id) : null;
       },
       getTopData() {
         let params = {};
@@ -207,6 +214,7 @@
             height: 100%;
             overflow: hidden;
             border-radius: 12px;
+            display: block;
             &::before {
               position: absolute;
               content: '';
@@ -298,7 +306,7 @@
           > i {
             width: 50px;
             margin-right: 30px;
-            .icon{
+            .icon {
               width: 50px;
               height: 50px;
             }
