@@ -20,6 +20,10 @@ const en = {
       article:'Article',
       tags:'Tags',
       copyCpde:'Copy code to clipboard'
+    },
+    news:{
+      top:'TOP',
+      article:'Article',
     }
   },
   //...enLocale

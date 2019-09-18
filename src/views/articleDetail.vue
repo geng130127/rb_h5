@@ -153,6 +153,7 @@
     width: 100%;
     min-height: 750px;
     padding-bottom: 30px;
+    background: rgba(0,0,0,.3);
     &::before {
       content: "";
       background-image: url("http://rnbtcg.com/images/static/web/home/1.png");
@@ -335,6 +336,7 @@
         line-height: 70px;
         color: $--font-text-color;
         font-size: $--font-text-size;
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         margin-bottom:50px;

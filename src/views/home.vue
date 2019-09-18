@@ -33,13 +33,13 @@
       </div>
 
       <div class="right">
-        <div class="tag" v-for="(item,index) in tags" :key="index"
+        <router-link :to="item.url" class="tag" v-for="(item,index) in tags" :key="index"
              :style="{backgroundImage:`url('${item.back}')`}">
           <i>
             <svg-icon :icon-class="item.icon" class-name="icon"></svg-icon>
           </i>
           <span>{{item.text}}</span>
-        </div>
+        </router-link>
       </div>
 
     </div>
@@ -63,21 +63,25 @@
             text: this.$t('message.tags.anouncement'),
             back: 'http://rnbtcg.com/images/static/h5/tag/anouncement.png',
             icon: 'broadcast',
+            url:'/news?tagid=40'
           }, {
             id: 41,
             text: this.$t('message.tags.gameIntro'),
             back: 'http://rnbtcg.com/images/static/h5/tag/gameIntro.png',
             icon: 'bulb',
+            url:'/news?tagid=41'
           }, {
             id: 52,
             text: this.$t('message.tags.cardAndDeck'),
             back: 'http://rnbtcg.com/images/static/h5/tag/cardsdecks.png',
             icon: 'cardpackage',
+            url:'/news?tagid=52'
           }, {
             id: 42,
             text: this.$t('message.tags.faq'),
             back: 'http://rnbtcg.com/images/static/h5/tag/faq.png',
             icon: 'question',
+            url:'/news?tagid=42'
           }
         ],
       }

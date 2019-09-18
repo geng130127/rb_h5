@@ -1,4 +1,5 @@
 const home = () => import('@/views/home');
+const news=() => import('@/views/news');
 const articleDetail = () => import('@/views/articleDetail');
 
 
@@ -22,5 +23,15 @@ export default [
     component: articleDetail,
     name: 'articleDetail',
     props: true
+  },
+  {
+    path:'/news',
+    component:news,
+    name:'news',
+    props: (router) => {
+      return {
+        tagid: router.query.tagid
+      }
+    },
   }
 ];
