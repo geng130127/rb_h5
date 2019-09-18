@@ -374,7 +374,7 @@
             height: 482px;
             background: #1F1F1F;
             border-radius: 10px;
-            margin: 0 45px 38px 0;
+            margin: 0 44px 38px 0;
             &:nth-of-type(3n) {
               margin-right: 0;
             }
