@@ -21,8 +21,13 @@
       </ul>
 
       <div class="top-articles">
-        <h3 class="new-title">{{$t('message.news.top')}}</h3>
-        <ul class="top-list">
+        <div class="new-title" @click.stop="topSwitchTap">
+          <span>{{$t('message.news.top')}}</span>
+          <i class="icon" :class="topCollapse?'rotate':''">
+            <svg-icon icon-class="daosanjiao"></svg-icon>
+          </i>
+        </div>
+        <ul class="top-list" :class="topCollapse?'collapse':''">
           <router-link :to="`article${item.id}`" tag="li" v-for="(item,index) in topArticles" :key="index">
             {{item.title}}
           </router-link>
@@ -127,6 +132,7 @@
           size: 6,
         },
         topArticles: [],//置顶文章
+        topCollapse: false,//置顶文章是否收起
         tagArticles: [],//标签文章
         loading: false, //是否滚动标志位
         hasMore: true,//是否滚动标志位 结合使用
@@ -241,6 +247,11 @@
         }
       },
 
+      //置顶文章展开收起
+      topSwitchTap() {
+        this.topCollapse = !this.topCollapse;
+      },
+
       //跳转
       linkTap(index) {
         let articleId;
@@ -256,6 +267,7 @@
 
       //关闭视频
       closeVideo() {
+        this.video.link = '';
         this.video.state = false;
       }
     },
@@ -377,11 +389,31 @@
       }
       .top-articles {
         width: 100%;
-        min-height: 240px;
         margin: 50px 0;
+        .new-title {
+          display: flex;
+          > span {
+            font-weight: bold;
+          }
+          .icon {
+            color: $--font-title-color;
+            font-size: $--font-title-size;
+            margin-left: 20px;
+            transition: transform 0.1s;
+            &.rotate{
+              transform: rotate(180deg);
+            }
+          }
+        }
         .top-list {
           color: $--font-text-color;
           font-size: $--font-text-size;
+          transition: transform .1s;
+          transform-origin:top;
+          &.collapse {
+            transform:scaleY(0); // *squish
+            height: 0;
+          }
           > li {
             padding-bottom: 20px;
             border-bottom: 1px dashed $--font-text-color;
