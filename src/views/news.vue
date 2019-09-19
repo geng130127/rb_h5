@@ -6,9 +6,9 @@
           {{item.text}}
         </li>
       </ul>
-      <div class="image">
+      <router-link class="image" to="/">
         <img src="http://rnbtcg.com/images/static/web/home/logo.png" alt="">
-      </div>
+      </router-link>
     </div>
 
     <div class="content-box">

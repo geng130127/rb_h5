@@ -2,9 +2,9 @@
   <section class="article-detail">
     <div class="header">
       <h1>{{$t('message.articleDetail.article')}}</h1>
-      <div class="image">
+      <router-link class="image" to="/">
         <img src="http://rnbtcg.com/images/static/web/home/logo.png" alt="">
-      </div>
+      </router-link>
     </div>
     <div class="article-area">
       <div class="article-title">
