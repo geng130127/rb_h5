@@ -14,7 +14,8 @@
     <div class="content-box">
       <ul class="child-tag-container" v-if="tag.list[tag.selectIndex].children.length>0">
         <li v-for="(item,index) in tag.list[tag.selectIndex].children"
-            :class="tag.list[tag.selectIndex].childIndex==index?'select':''" @click.stop="childTagTap(index)" :key="index">
+            :class="tag.list[tag.selectIndex].childIndex==index?'select':''" @click.stop="childTagTap(index)"
+            :key="index">
           {{item.text}}
         </li>
       </ul>
@@ -31,13 +32,16 @@
       <div class="tag-articles">
         <h3 class="new-title">{{$t('message.news.article')}}</h3>
         <ul class="article-list">
-          <router-link :to="`article${item.id}`" class="item-article" tag="li" v-for="(item,index) in tagArticles" :key="index">
+          <li class="item-article" v-for="(item,index) in tagArticles" :key="index" @click.stop="linkTap(index)">
             <div class="time">
               <span>{{item.author}}</span>
               <span>{{item.dateTime}}</span>
             </div>
             <div class="image">
               <img :src="item.picture" alt="">
+              <i class="video-play" v-if="item.video" @click.stop="playVideoTap(item.video)">
+                <svg-icon icon-class="play"></svg-icon>
+              </i>
             </div>
             <h4 class="title">{{item.title}}</h4>
             <div class="zan">
@@ -51,16 +55,19 @@
                 <span>{{item.readNum}}</span>
               </div>
             </div>
-          </router-link>
+          </li>
         </ul>
       </div>
     </div>
+
+    <c-video :video-link="video.link" :state="video.state" @closeVideo="closeVideo"></c-video>
 
   </section>
 </template>
 
 <script type="text/ecmascript-6">
   import util from '@common/util';
+  import video from '@components/Video'
 
   export default {
     name: "news",
@@ -123,6 +130,10 @@
         tagArticles: [],//标签文章
         loading: false, //是否滚动标志位
         hasMore: true,//是否滚动标志位 结合使用
+        video: {
+          link: '',
+          state: false
+        }
       }
     },
     props: {
@@ -197,12 +208,12 @@
         }
         this.$axios.getArticleList(this.query)
           .then((response) => {
+            this.loading = false;
             if (response.code !== 200) {
               return false;
             }
             !type ? this.tagArticles = [] : null; //如果是切换标签则清空数组
             this.dealWithArticle(this.tagArticles, response.data);
-            this.loading = false;
             if (response.data.list.length < this.query.size)
               this.hasMore = false;
           })
@@ -225,12 +236,33 @@
             readNum: item.readNum,
             likeNum: item.likeNum,
             dateTime: util.formatDate(item.createTime, 'yyyy.MM.dd'),
+            video: item.video,
           });
         }
       },
+
+      //跳转
+      linkTap(index) {
+        let articleId;
+        articleId = this.tagArticles[index].id;
+        this.$router.push({path: `/article${articleId}`});
+      },
+
+      //播放视频
+      playVideoTap(url) {
+        this.video.link = url;
+        this.video.state = true;
+      },
+
+      //关闭视频
+      closeVideo() {
+        this.video.state = false;
+      }
     },
     computed: {},
-    components: {},
+    components: {
+      'c-video': video,
+    },
     created() {
 
     },
@@ -374,7 +406,7 @@
             height: 482px;
             background: #1F1F1F;
             border-radius: 10px;
-            margin: 0 44px 38px 0;
+            margin: 0 42px 38px 0;
             &:nth-of-type(3n) {
               margin-right: 0;
             }
@@ -389,10 +421,24 @@
               }
             }
             .image {
+              position: relative;
               height: 295px;
               overflow: hidden;
               > img {
                 width: 100%;
+              }
+              .video-play {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -30px 0 0 -30px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: #dedee1;
+                line-height: 60px;
+                font-size: 30px;
+                padding-left: 18px;
               }
             }
             .title {
