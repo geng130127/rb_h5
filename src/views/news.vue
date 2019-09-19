@@ -63,6 +63,10 @@
           </li>
         </ul>
       </div>
+
+      <div class="company-logo" v-if="!hasMore">
+        <img src="http://rnbtcg.com/images/static/web/footer/logo.png" alt="">
+      </div>
     </div>
 
     <c-video :video-link="video.link" :state="video.state" @closeVideo="closeVideo"></c-video>
@@ -495,6 +499,15 @@
               }
             }
           }
+        }
+      }
+      .company-logo{
+        width: 223px;
+        height: 60px;
+        margin: 0 auto;
+        >img{
+          width: 100%;
+          height: 100%;
         }
       }
     }
