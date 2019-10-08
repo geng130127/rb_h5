@@ -3,7 +3,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 
 function resolve(dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 };
 
 module.exports = {
