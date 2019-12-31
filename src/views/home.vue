@@ -34,7 +34,7 @@
 
       <div class="right">
         <router-link :to="item.url" class="tag" v-for="(item,index) in tags" :key="index"
-             :style="{backgroundImage:`url('${item.back}')`}">
+                     :style="{backgroundImage:`url('${item.back}')`}">
           <i>
             <svg-icon :icon-class="item.icon" class-name="icon"></svg-icon>
           </i>
@@ -59,29 +59,29 @@
         topArticle: {},
         tags: [
           {
-            id: 40,
+            id: this.$i18n.locale === 'en' ? 40 : 140,
             text: this.$t('message.tags.anouncement'),
             back: 'http://rnbtcg.com/images/static/h5/tag/anouncement.png',
             icon: 'broadcast',
-            url:'/news?tagid=40'
+            url: `news?tagid=${this.$i18n.locale === 'en' ? 40 : 140}`
           }, {
-            id: 41,
+            id: this.$i18n.locale === 'en' ? 41 : 141,
             text: this.$t('message.tags.gameIntro'),
             back: 'http://rnbtcg.com/images/static/h5/tag/gameIntro.png',
             icon: 'bulb',
-            url:'/news?tagid=41'
+            url: `news?tagid=${this.$i18n.locale === 'en' ? 41 : 141}`
           }, {
-            id: 52,
+            id: this.$i18n.locale === 'en' ? 52 : 152,
             text: this.$t('message.tags.cardAndDeck'),
             back: 'http://rnbtcg.com/images/static/h5/tag/cardsdecks.png',
             icon: 'cardpackage',
-            url:'/news?tagid=52'
+            url: `news?tagid=${this.$i18n.locale === 'en' ? 52 : 152}`
           }, {
-            id: 42,
+            id: this.$i18n.locale === 'en' ? 42 : 142,
             text: this.$t('message.tags.faq'),
             back: 'http://rnbtcg.com/images/static/h5/tag/faq.png',
             icon: 'question',
-            url:'/news?tagid=42'
+            url: `news?tagid=${this.$i18n.locale === 'en' ? 42 : 142}`
           }
         ],
       }
@@ -92,7 +92,7 @@
     methods: {
       getSwiperData() {
         let params = {};
-        params.labels = '31';
+        params.labels = this.$i18n.locale === 'en' ? 31 : 131;
         params.page = 0;
         params.size = 4;
         this.$axios.getArticleList(params)
@@ -111,7 +111,7 @@
       },
       getTopData() {
         let params = {};
-        params.labels = '32';
+        params.labels = this.$i18n.locale === 'en' ? 32 : 132;
         params.page = 0;
         params.size = 1;
         this.$axios.getArticleList(params)

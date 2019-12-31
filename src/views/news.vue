@@ -86,45 +86,45 @@
           selectIndex: 0,
           list: [
             {
-              id: '40,41,52,42',
+              id: this.$i18n.locale === 'en' ? '40,41,52,42' : '140,141,152,142',
               text: this.$t('message.tags.allArticle'),
               children: []
             }, {
-              id: 40,
+              id: this.$i18n.locale === 'en' ? 40 : 140,
               text: this.$t('message.tags.anouncement'),
               children: []
             }, {
-              id: 41,
+              id: this.$i18n.locale === 'en' ? 41 : 141,
               text: this.$t('message.tags.gameIntro'),
               children: []
             }, {
-              id: 52,
+              id: this.$i18n.locale === 'en' ? 52 : 152,
               text: this.$t('message.tags.cardAndDeck'),
               childIndex: 0,
               children: [
                 {
-                  id: 52,
+                  id: this.$i18n.locale === 'en' ? 52 : 152,
                   text: this.$t('message.tags.cardIntro'),
                 },
                 {
-                  id: 53,
+                  id: this.$i18n.locale === 'en' ? 53 : 153,
                   text: this.$t('message.tags.fire'),
                 },
                 {
-                  id: 54,
+                  id: this.$i18n.locale === 'en' ? 54 : 154,
                   text: this.$t('message.tags.water'),
                 },
                 {
-                  id: 55,
+                  id: this.$i18n.locale === 'en' ? 55 : 155,
                   text: this.$t('message.tags.wind'),
                 },
                 {
-                  id: 56,
+                  id: this.$i18n.locale === 'en' ? 56 : 156,
                   text: this.$t('message.tags.earth'),
                 }
               ]
             }, {
-              id: 42,
+              id: this.$i18n.locale === 'en' ? 42 : 142,
               text: this.$t('message.tags.faq'),
               children: []
             }
@@ -189,7 +189,7 @@
       //获取置顶文章
       getTopArticleData() {
         let params = {};
-        params.labels = '30';
+        params.labels = this.$i18n.locale === 'en' ? '30' : 130;
         params.page = 0;
         params.size = 100;
         this.$axios.getArticleList(params)
@@ -404,7 +404,7 @@
             font-size: $--font-title-size;
             margin-left: 20px;
             transition: transform 0.1s;
-            &.rotate{
+            &.rotate {
               transform: rotate(180deg);
             }
           }
@@ -413,9 +413,9 @@
           color: $--font-text-color;
           font-size: $--font-text-size;
           transition: transform .1s;
-          transform-origin:top;
+          transform-origin: top;
           &.collapse {
-            transform:scaleY(0); // *squish
+            transform: scaleY(0); // *squish
             height: 0;
           }
           > li {
@@ -501,11 +501,11 @@
           }
         }
       }
-      .company-logo{
+      .company-logo {
         width: 223px;
         height: 60px;
         margin: 0 auto;
-        >img{
+        > img {
           width: 100%;
           height: 100%;
         }
