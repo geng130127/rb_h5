@@ -180,8 +180,8 @@
     .header {
       position: relative;
       width: 100%;
-      height: 70px;
-      background: #000000;
+      height: 60px;
+      background: #1f242b;
       padding: 0 40px;
       color: $--font-title-color;
       font-size: $--font-title-size;
@@ -193,9 +193,9 @@
       .image {
         position: absolute;
         right: 40px;
-        top: 5px;
-        width: 168px;
-        height: 62px;
+        top: 10px;
+        width: 150px;
+        height: 55px;
         @include image
       }
     }

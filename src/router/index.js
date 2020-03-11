@@ -6,7 +6,7 @@ Vue.use(Router);
 
 const router = new Router({
   mode: 'history',
-  base:'m-cn', //http://localhost:8080/m-cnc/home 调试地址
+  base:'m-en', //http://localhost:8080/m-cnc/home 调试地址
   routes: [
     ...routerConfig
   ],

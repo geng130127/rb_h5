@@ -1,5 +1,9 @@
 @import "~@assets/css/base.css";
 
+*{
+  font-family: 'Roboto', sans-serif; /*英文专用*/
+}
+
 .clearfix {
   display: inline-block;
 }
@@ -25,10 +29,10 @@
 }
 
 // color font
-$--font-title-color: #C6BDA9;
-$--font-text-color: #88847C;
+$--font-title-color: #d7b14e;
+$--font-text-color: #a39a7a;
 $--font-text-size: 18px;
-$--font-title-size: 30px;
+$--font-title-size: 28px;
 
 //@mixin
 @mixin content-box {

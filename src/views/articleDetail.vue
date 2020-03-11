@@ -168,8 +168,8 @@
     .header {
       position: relative;
       width: 100%;
-      height: 70px;
-      background: #000000;
+      height: 60px;
+      background: #1f242b;
       padding: 0 40px;
       color: $--font-title-color;
       font-size: $--font-title-size;
@@ -182,9 +182,9 @@
       .image {
         position: absolute;
         right: 40px;
-        top: 5px;
-        width: 168px;
-        height: 62px;
+        top: 10px;
+        width: 155px;
+        height: 55px;
         @include image
       }
     }
@@ -204,7 +204,7 @@
       }
       .article-time {
         font-size: 20px;
-        color: $--font-text-color;
+        color: #bbb199;
         text-align: center;
         margin: 20px 0 40px 0;
         font-weight: bold;
@@ -226,7 +226,7 @@
         p {
           margin-top: 20px;
           line-height: 1.7;
-          color: #9F9889;
+          color: #bbb199;
           font-size: $--font-text-size;
         }
         img {

@@ -8,7 +8,7 @@ function resolve(dir) {
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/m-cn/'
+    ? '/m-en/'
     : '/',//输出文件目录
   assetsDir: 'static', //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
   productionSourceMap: false, //生产环境是否生成 sourceMap 文件，一般情况不建议打开；是否允许调试

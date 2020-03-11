@@ -334,8 +334,8 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 70px;
-      background: #000000;
+      height: 60px;
+      background: #1f242b;
       padding: 0 40px;
       color: $--font-text-color;
       font-size: $--font-text-size;
@@ -361,9 +361,9 @@
       .image {
         position: absolute;
         right: 40px;
-        top: 5px;
-        width: 168px;
-        height: 62px;
+        top: 10px;
+        width: 155px;
+        height: 55px;
         @include image
       }
     }
@@ -381,14 +381,14 @@
           height: 40px;
           line-height: 38px;
           background: rgba(190, 178, 152, 0.13);
-          border: 1px solid #E1CC9F;
+          border: 1px solid #6e674c;
           border-radius: 35px;
           margin-right: 30px;
           transition: all .3s
         }
         .select {
-          background: #BEB298;
-          color: #5D5440;
+          background:$--font-title-color;
+          color: #60421f;
         }
       }
       .top-articles {
