@@ -37,7 +37,8 @@
         </div>
       </div>
       <div class="article-code" v-if="article.code">
-        <span ref="code">{{article.code}}</span>
+        <p class="code-text" ref="code" v-html="codeBr"></p>
+        <span>{{article.code}}</span>
         <button class="copy" @click.stop="copyCodeTap">{{$t('message.articleDetail.copyCpde')}}</button>
       </div>
       <div class="company-logo">
@@ -137,7 +138,11 @@
         document.execCommand('copy');
       },
     },
-    computed: {},
+    computed: {
+      codeBr() {
+        return this.article.code.replace(/[\f\n\r\t\v]+/g,'<br>');
+      }
+    },
     components: {},
     created() {
 
@@ -340,6 +345,10 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         margin-bottom:50px;
+        .code-text{
+          position: absolute;
+          top:80px;
+        }
         .copy{
           position: absolute;
           right: 0;
